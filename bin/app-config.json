@@ -1,0 +1,15 @@
+{
+ "logLevel": "Error",
+ "bypassLan": true,
+ "proxies": [
+   {
+     "appNames": ["discord", "EDMarketConnector.exe", "MinEdLauncher.exe", "EliteDangerous64.exe", "EDMC.exe"],
+     "socks5ProxyEndpoint": "127.0.0.1:10808",
+     "supportedProtocols": ["TCP", "UDP"]
+   }
+ ],
+ "excludes": [
+   "edge",
+   "localservice.exe"
+ ]
+}
