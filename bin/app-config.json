@@ -3,7 +3,7 @@
  "bypassLan": true,
  "proxies": [
    {
-     "appNames": ["discord", "EDMarketConnector.exe", "MinEdLauncher.exe", "EliteDangerous64.exe", "EDMC.exe"],
+     "appNames": ["discord", "EDMarketConnector.exe", "MinEdLauncher.exe", "EDMC.exe", "EDLaunch.exe", "EliteDangerous64.exe"],
      "socks5ProxyEndpoint": "127.0.0.1:10808",
      "supportedProtocols": ["TCP", "UDP"]
    }
