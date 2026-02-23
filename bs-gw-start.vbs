@@ -19,7 +19,7 @@ WshShell.Run "cmd.exe /c bin\ProxiFyre.exe run", 0, False
 
 WScript.Sleep 5000
 
-checkScriptPath = objFSO.GetAbsolutePathName("dist\check_and_run.vbs")
+checkScriptPath = objFSO.GetAbsolutePathName("bin\check_and_run.vbs")
 
 If objFSO.FileExists(checkScriptPath) Then
     WshShell.CurrentDirectory = objFSO.GetParentFolderName(checkScriptPath)
