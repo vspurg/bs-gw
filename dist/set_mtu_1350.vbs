@@ -12,12 +12,13 @@ psCommand = "powershell -WindowStyle Hidden -Command ""Add-Type -AssemblyName Sy
             "  [System.Windows.Forms.MessageBox]::Show('No active network adapter found.', 'Network Setup'); exit " & _
             "}; " & _
             "$raw = netsh interface ipv4 show subinterface ($adapter.Name); " & _
-            "$currentMtu = ($raw | Select-String '^\s*\d+' | ForEach-Object { $_.ToString().Split(' ', [System.StringSplitOptions]::RemoveEmptyEntries)[0] }); " & _
+            "$currentMtu = ($raw | Select-String '^\s*\d+' | ForEach-Object { $_.ToString().Split(' ', [System.StringSplitOptions]::RemoveEmptyEntries) }); " & _
             "if ($currentMtu -eq '1350') { " & _
             "  [System.Windows.Forms.MessageBox]::Show('MTU is already set to 1350. No changes needed.', 'Network Setup') " & _
             "} else { " & _
             "  netsh interface ipv4 set subinterface ($adapter.Name) mtu=1350 store=persistent; " & _
-            "  [System.Windows.Forms.MessageBox]::Show('MTU has been successfully set to 1350.', 'Network Setup') " & _
+            "  ipconfig /flushdns; " & _
+            "  [System.Windows.Forms.MessageBox]::Show('MTU set to 1350 and DNS cache flushed successfully.', 'Network Setup') " & _
             "}"""
 
 WshShell.Run psCommand, 0, True
